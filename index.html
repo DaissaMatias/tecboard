@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tecboard</title>
+    <link rel="shortcut icon" href="favicon-roxo.svg" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body>
+    <header class="cabecalho">
+        <img src="img/logo-tecboard-branco.png" alt="Logo branco da Tecboard">
+
+        <!-- Vai ter que ter tag button -->
+        <button class="btn-modo">
+            <img src="img/modo-light.png" alt="Modo Claro">
+        </button>
+    </header>
+    <main>
+        <div class="texto">
+            <div class="txt-principal">
+                <h1 id="texto-principal"><span>Fique de olho</span> no que importa</h1>
+            </div>
+            <p id="texto-parag">Monitoramento em tempo real com alertas inteligentes para sua aplicação nunca sair do ar
+                sem você saber.</p>
+        </div>
+        <div class="botao">
+            <button type="button">Testar versão demo</button>
+        </div>
+        <div class="img-principal">
+            <picture>
+                <source media="(max-width: 565px)" srcset="img/celulares-mobile.png">
+                <img src="img/celulares-desktop.png" alt="celulares sobrepostos">
+            </picture>
+        </div>
+    </main>
+</body>
+
+</html>
