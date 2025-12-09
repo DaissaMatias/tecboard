@@ -1,8 +1,8 @@
-// Theme toggle script for Tecboard
-// - toggles between 'light' and 'dark' theme classes on the <body>
-// - swaps logo and toggle icon images to match the selected theme
-// - persists theme selection in localStorage
-// - uses prefers-color-scheme if no saved preference
+// Script de alternância de tema
+// - Alterna entre os temas 'claro' e 'escuro' no <body>
+// - Troca as imagens do logotipo e do ícone de alternância para corresponder ao tema selecionado
+// - Mantém a seleção de tema no localStorage
+// - Usa prefers-color-scheme se nenhuma preferência estiver salva
 
 (function () {
 	const THEME_KEY = 'theme';
@@ -11,7 +11,7 @@
 	const headerLogo = document.querySelector('.cabecalho img');
 	const modeIcon = toggler ? toggler.querySelector('img') : null;
 
-	// paths for the theme-specific assets
+	// caminhos para os recursos específicos do tema
 	const icons = {
 		light: 'img/modo-dark.png',
 		dark: 'img/modo-light.png',
@@ -24,19 +24,19 @@
 
 	function applyTheme(theme) {
 		if (!theme) return;
-		// remove previous theme classes (in case some already set)
+		// remover classes de tema anteriores (caso já existam algumas definidas)
 		body.classList.remove('light', 'dark');
 		body.classList.add(theme);
-		// also keep a data attribute for CSS selectors
+		// mantem também um atributo de dados para seletores CSS.
 		document.documentElement.setAttribute('data-theme', theme);
 
-		// swap logo image if available
+		// troca a imagem do logotipo, se disponível.
 		if (headerLogo) {
 			headerLogo.src = logos[theme] || headerLogo.src;
 			headerLogo.alt = theme === 'light' ? 'Logo preto da Tecboard' : 'Logo branco da Tecboard';
 		}
 
-		// swap mode icon and accessible label
+		// ícone do modo de troca e etiqueta de acessibilidade
 		if (modeIcon) {
 			modeIcon.src = icons[theme] || modeIcon.src;
 			modeIcon.alt = theme === 'light' ? 'Modo Claro' : 'Modo Escuro';
@@ -47,12 +47,12 @@
 			toggler.setAttribute('aria-label', theme === 'light' ? 'Ativar modo escuro' : 'Ativar modo claro');
 		}
 
-		// persist choice
+		// persistir escolha
 		try {
 			localStorage.setItem(THEME_KEY, theme);
 		} catch (e) {
-			// ignore if localStorage is unavailable
-			// (e.g., pocket mode) — continue without persisting
+			// ignorar se o localStorage não estiver disponível
+			// (ex.: modo de bolso) — continuar sem persistir
 			console.warn('Não foi possível salvar a preferência de tema:', e);
 		}
 	}
@@ -66,7 +66,7 @@
 	}
 
 	function getPreferredTheme() {
-		// If user has no saved choice, accept system prefers-color-scheme
+		// se o usuário não tiver nenhuma escolha salva, aceite o esquema de cores preferido do sistema.
 		if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
 			return 'dark';
 		}
@@ -79,14 +79,14 @@
 		applyTheme(next);
 	}
 
-	// initialize on DOMContentLoaded
+	// inicializa em DOMContentLoaded
 	document.addEventListener('DOMContentLoaded', () => {
-		// Determine initial theme
+		// determina o tema inicial
 		const saved = getSavedTheme();
 		const initial = saved || getPreferredTheme();
 		applyTheme(initial);
 
-		// add click handler to toggle button
+		// ddiciona manipulador de cliques ao botão de alternância
 		if (toggler) {
 			toggler.addEventListener('click', () => toggleTheme());
 		} else {
