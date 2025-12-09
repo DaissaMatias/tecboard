@@ -1,4 +1,4 @@
-// Script de alternância de tema
+// Script de alternância de tema:
 // - Alterna entre os temas 'claro' e 'escuro' no <body>
 // - Troca as imagens do logotipo e do ícone de alternância para corresponder ao tema selecionado
 // - Mantém a seleção de tema no localStorage
@@ -86,7 +86,7 @@
 		const initial = saved || getPreferredTheme();
 		applyTheme(initial);
 
-		// ddiciona manipulador de cliques ao botão de alternância
+		// adiciona manipulador de cliques ao botão de alternância
 		if (toggler) {
 			toggler.addEventListener('click', () => toggleTheme());
 		} else {
