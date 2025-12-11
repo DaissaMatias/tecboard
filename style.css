@@ -40,6 +40,8 @@ body.light .botao button {
     color: var(--fundo-light);
 }
 
+/*CSS Desktop*/
+
 main {
     display: flex;
     flex-direction: column;
@@ -116,6 +118,7 @@ main {
     margin: 0 auto 87px;
 }
 
+/*CSS telas menores*/
 @media (max-width: 842px) {
 
     #texto-parag {
