@@ -25,17 +25,17 @@ body {
     background: var(--fundo-dark);
 }
 
-/* Light theme overrides: applied when <body> has class="light" */
+/* sobreposição do tema claro: aplicada quando <body> possui a classe "light" */
 body.light {
     background: var(--fundo-light);
 }
 
-/* Example text color change for light theme */
+/* alteração da cor do texto para o tema claro */
 body.light .texto {
     color: var(--grafite-texto-light);
 }
 
-/* Keep buttons legible on the light background */
+/* mantenha os botões legíveis no fundo claro */
 body.light .botao button {
     color: var(--fundo-light);
 }
